@@ -12,3 +12,10 @@ Until the Microsoft Azure Recovery Services Agent has an automatic update, I wro
 We use Lansweeper (http://www.lansweeper.com) at our organisation, and we have an IT repository of installations, in which this .exe is part of. This IT respository is distributed to all geographic locations (including Azure) using Distributed Filing System (DFS). Once the installation file has been updated, its a few seconds to push the update out via Lansweeper Deployments to all servers that require it. 
 
 It is suggested that this process is scheduled on a weekly basis. 
+
+## Remove-TempFiles.ps1
+
+Removes all temporary files from a specified file path. This was written to deal with the large quantity of temporary files created by SAP2000 Structural Engineering package, and Autodesk's various products such as AutoCAD (+ LT) and Revit. 
+Thanks to those over at Powershell.org for helping me improve it's efficiency. 
+
+
