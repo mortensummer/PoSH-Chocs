@@ -34,7 +34,7 @@ Will search for all temporary files and Revit Backup Files within C:\Work, and w
 Written by: Tom Yates
 
 Change Log
-V1.10, 24/11/2018 - Updated 
+V1.10, 24/11/2018 - Updated to use System32.IO.FileInfo Delete method and single output of removed files. 
 V1.00, 01/11/2018 - Initial version
 #>
 
@@ -119,7 +119,8 @@ If ($Commit) {
     ForEach ($file in $files){
         $FullPath = $file.FullName
         Try{
-            Remove-Item $file.FullName -ErrorAction Stop
+            [System.IO.File]::Delete($file.FullName)
+            #Remove-Item $file.FullName -ErrorAction Stop
             Write-LogFile "Removing $FullPath"
         }
         Catch{
@@ -129,9 +130,7 @@ If ($Commit) {
         }
     }
 }else{
-    ForEach ($file in $files){
-        $FullPath = $file.FullName
-            Write-LogFile "Found, but NOT removing: $FullPath"
-    }
+    Write-LogFile "Found, but NOT removing following files: $FullPath"
+    $files.FullName | Out-File -FilePath $LogFile -Append
 }
 Write-Logfile "Process Complete."
