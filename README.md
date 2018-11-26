@@ -18,4 +18,4 @@ It is suggested that this process is scheduled on a weekly basis.
 Removes all temporary files from a specified file path. This was written to deal with the large quantity of temporary files created by SAP2000 Structural Engineering package, and Autodesk's various products such as AutoCAD (+ LT) and Revit. 
 Thanks to those over at Powershell.org for helping me improve it's efficiency. 
 
-
+Test Mirror
