@@ -48,10 +48,10 @@ V1.00, 13/11/2018 - Initial version
         [string]$SMTPServer, 
 
         [Parameter(ParameterSetName='Email', Mandatory = $true)]
-        [string]$sendFrom = "alert@example.com",    ### UPDATE THIS EMAIL ADDRESS, or specify in the command line
+        [string]$sendTo = 'me@example.com',          ### UPDATE THIS EMAIL ADDRESS, or specify in the command line
 
         [Parameter(ParameterSetName='Email', Mandatory = $true)]
-        [string]$sendTo = "me@example.com",          ### UPDATE THIS EMAIL ADDRESS, or specify in the command line
+        [string]$sendFrom = 'me@example.com',          ### UPDATE THIS EMAIL ADDRESS, or specify in the command line
 
         [Parameter(ParameterSetName='Log', Mandatory=$false)]
         [switch]$Log,
@@ -63,10 +63,8 @@ V1.00, 13/11/2018 - Initial version
 # Set this path to where Lansweeper gets its installation files from. 
 # I'm using DFS to replicate my installations to all locations. 
 
-#$Domain = (Get-ADDomain).DNSRoot
-#$DFSDistPath = "\\$Domain\its\SoftwareDeployment\Microsoft\MARSAgent\"
-
-$DFSDistPath = "Z:\Temp\Mars\"
+$Domain = (Get-ADDomain).DNSRoot
+$DFSDistPath = "\\$Domain\its\SoftwareDeployment\Microsoft\MARSAgent\"
 
 $BackupFile = $DFSDistPath+"MARSAgentInstaller_PreviousVersion.exe"
 $MARSExistingFile = $DFSDistPath+"MARSAgentInstaller.exe"
