@@ -50,6 +50,9 @@ V1.00, 13/11/2018 - Initial version
         [Parameter(ParameterSetName='Email', Mandatory = $true)]
         [string]$sendTo = 'me@example.com',          ### UPDATE THIS EMAIL ADDRESS, or specify in the command line
 
+        [Parameter(ParameterSetName='Email', Mandatory = $true)]
+        [string]$sendFrom = 'me@example.com',          ### UPDATE THIS EMAIL ADDRESS, or specify in the command line
+
         [Parameter(ParameterSetName='Log', Mandatory=$false)]
         [switch]$Log,
 
