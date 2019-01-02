@@ -25,5 +25,5 @@ This script converts all patient data from an unloaded Freehand Clinic Manger Pa
 By default the patient data is stored in a file called adphsl.dat, which is a COBOL vision data file format.
 In order for the script to extract the data correctly, it first must be unloaded into line sequential format.
 
-    This can be achieved using the vutil32.exe command.
-    Example: vutil32.exe -unload -t adphsl.dat adphsl.unloaded
+This can be achieved using the vutil32.exe command. Example: 
+    vutil32.exe -unload -t adphsl.dat adphsl.unloaded
