@@ -9,7 +9,7 @@ scripts! Feel free to reach out and let me know!
 
 Until the Microsoft Azure Recovery Services Agent has an automatic update, I wrote this script to solve the issue for me. It will get the latest MARS Agent, and compare to an existing .exe on the network. If its newer, it will replace it and send me an email. 
 
-We use Lansweeper (http://www.lansweeper.com) at our organisation, and we have an IT repository of installations, in which this .exe is part of. This IT respository is distributed to all geographic locations (including Azure) using Distributed Filing System (DFS). Once the installation file has been updated, its a few seconds to push the update out via Lansweeper Deployments to all servers that require it.
+I use Lansweeper (http://www.lansweeper.com) and it contains a repository of software installations, in which this .exe is part of. This IT respository is distributed to all geographic locations (including Azure) using Distributed Filing System (DFS). Once the installation file has been updated, its a few seconds to push the update out via Lansweeper Deployments to all servers that require it.
 
 It is suggested that this process is scheduled on a weekly basis.
 
@@ -18,8 +18,12 @@ It is suggested that this process is scheduled on a weekly basis.
 Removes all temporary files from a specified file path. This was written to deal with the large quantity of temporary files created by SAP2000 Structural Engineering package, and Autodesk's various products such as AutoCAD (+ LT) and Revit.
 Thanks to those over at Powershell.org for helping me improve it's efficiency.
 
-## Get-GSA.ps1
+## Extract-FreehandData.ps1
 
-Same logic as Get-MARSAgent, gets the latest GSA build from Oasys site. The hurdle here was to provide credentials via web form first before logging in.
-Will send update via email when new version available.
+This script converts all patient data from an unloaded Freehand Clinic Manger Patient database into CSV format.
 
+By default the patient data is stored in a file called adphsl.dat, which is a COBOL vision data file format.
+In order for the script to extract the data correctly, it first must be unloaded into line sequential format.
+
+    This can be achieved using the vutil32.exe command.
+    Example: vutil32.exe -unload -t adphsl.dat adphsl.unloaded
