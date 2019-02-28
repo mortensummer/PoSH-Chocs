@@ -53,7 +53,8 @@ $LSDBName = "lansweeperdb"                              # Lansweeper Database Na
 $DependantServices = "W3SVC","IISExpressSVC","LansweeperService"
 
 $CurrentDate = Get-Date
-$DatetoDelete = $CurrentDate.AddDays($BackupsToKeep)
+$DatetoDelete = $CurrentDate.AddDays(-$BackupsToKeep)
+$CurrentDate.A
 $Date = Get-Date -Format 'ddMMyy-HHmmss'
 
 $FilePrefix = "Lansweeper_Backup_"
@@ -136,7 +137,11 @@ Compress-Archive -Path $Finish.FullName -DestinationPath $ZipBackup
 $OriginalHash = Get-FileHash -Path $ZipBackup -Algorithm MD5
 
 #Copy file to destination
-$FileBackup = Copy-Item -Path $ZipBackup -Destination $Destination -PassThru
+try{
+    $FileBackup = Copy-Item -Path $ZipBackup -Destination $Destination -PassThru
+}catch{
+
+}
 
 #Calculate Hash afer copying
 $CopiedHash = Get-FileHash -Path $FileBackup.FullName -Algorithm MD5
