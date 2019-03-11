@@ -27,3 +27,7 @@ In order for the script to extract the data correctly, it first must be unloaded
 
 This can be achieved using the vutil32.exe command. Example: 
     vutil32.exe -unload -t adphsl.dat adphsl.unloaded
+
+## Backup-Lansweeper.ps1
+
+Does what it says on the tin. Backups up Lansweeper and the various website customisations as per their guidelines (https://www.lansweeper.com/knowledgebase/backing-up-your-installation/)
