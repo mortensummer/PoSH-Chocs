@@ -77,5 +77,5 @@ If ($CurrentIP -ne $LastIP){
     $Body += "History`n=======`n`n"
     $Body += $HistoryCSV | Out-String
     Write-Host $Body
-    send-mailmessage -from $sendFrom  -to $sendTo -subject $subject -body $body -smtpServer $SMTPServer -BodyAsHtml
+    send-mailmessage -from $sendFrom  -to $sendTo -subject $subject -body $body -smtpServer $SMTPServer
 }
