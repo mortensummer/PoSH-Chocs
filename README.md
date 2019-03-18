@@ -32,7 +32,7 @@ This can be achieved using the vutil32.exe command. Example:
 
 Does what it says on the tin. Backups up Lansweeper and the various website customisations as per their guidelines (https://www.lansweeper.com/knowledgebase/backing-up-your-installation/)
 
-## Get-IP.ps1
+## Get-MyIP.ps1
 
 Gets the external IP address from one of 5 web services. Records history in simple CSV. Best scheduled. Background to this was I had a simple PHP script to do it on a Linux server, so i knew when to change firewall configuration (couldn't use Dynamic DNS!).
 As PHP is not my language, thought it best to re-write it in PWSH, and put it on my linux server instead.
